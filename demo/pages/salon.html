@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#242d22">
+  <meta name="description" content="Morrow Studio — An illustrative Barber & Salon mobile customer destination powered by TAP TRUST NFC and QR code stands.">
+  <title>Morrow Studio — Barber &amp; Salon Demo | TAP TRUST</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/demo-studio.css">
+  <style>
+    /* Salon specific editorial nuances */
+    .salon-palette {
+      --ds-accent-current: var(--ds-salon);
+      --ds-accent-current-soft: var(--ds-salon-soft);
+    }
+    .salon-art-banner {
+      background: linear-gradient(135deg, #2c2520 0%, #4a3c33 60%, #1d1915 100%);
+      color: #f7eee7;
+      position: relative;
+    }
+    .salon-art-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .salon-monogram {
+      font-family: var(--ds-font-serif);
+      font-style: italic;
+      font-size: 32px;
+      color: #d8c2b0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .gallery-tile {
+      height: 110px;
+      border-radius: var(--ds-radius-md);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--ds-line);
+      display: flex;
+      align-items: flex-end;
+      padding: 8px;
+    }
+    .gallery-tile-label {
+      background: rgba(20, 22, 18, 0.72);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="ds-body salon-palette">
+
+  <!-- Universal Wayfinding Chrome Banner -->
+  <aside class="ds-banner" aria-label="Demo status banner">
+    <div class="ds-banner-content">
+      <span class="ds-banner-badge"><span class="ds-live-dot" aria-hidden="true"></span> DEMO 01 OF 04</span>
+      <span>Barber &amp; Salon · Morrow Studio</span>
+    </div>
+    <div class="ds-banner-links">
+      <a class="ds-banner-link" href="../index.html">← Back to Demo Studio</a>
+      <a class="ds-banner-link ds-banner-link-accent" href="cafe.html">Next Demo (Café) →</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Translucent Header -->
+  <header class="ds-header">
+    <div class="ds-header-inner">
+      <a class="ds-brand" href="../index.html" aria-label="Morrow Studio">
+        <span class="salon-monogram" aria-hidden="true">m.</span>
+        <span>morrow <span style="font-weight: 500; font-size: 11px; letter-spacing: 1.5px; color: #7a5035; margin-left: 4px;">STUDIO</span></span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 600; color: #718a4d; background: #eaf0dc; padding: 4px 10px; border-radius: 99px;">
+          ● Open Today
+        </span>
+        <button class="ds-btn ds-btn-primary ds-btn-sm" data-ds-action="salon-booking">
+          Book Appointment
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ds-demo-container">
+    <div class="ds-demo-card-shell">
+      <!-- Editorial Hero Header -->
+      <div class="ds-demo-hero-art salon-art-banner">
+        <div class="salon-art-pattern"></div>
+        <div class="ds-demo-hero-content">
+          <span class="ds-badge" style="font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;">
+            INDEPENDENT HAIR &amp; GROOMING · SAGAR
+          </span>
+          <h1>Your next <span class="serif">good hair day.</span></h1>
+          <p>
+            A calm haircut, a thoughtful reset, and styling crafted to feel like you. Welcome to Morrow Studio.
+          </p>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px;">
+            <span style="color: #ecc589; letter-spacing: 2px;">★★★★★</span>
+            <strong>4.9 Rating</strong>
+            <span style="opacity: 0.8;">· 128 customer reviews</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 28px;">
+        <!-- Core Fast Actions (Physical NFC Stand Counter Destinations) -->
+        <div style="margin-bottom: 32px;">
+          <div class="ds-eyebrow">WHAT WOULD YOU LIKE TO DO?</div>
+          <h2 class="ds-heading-section" style="font-size: 24px;">
+            Quick actions for <span class="serif">in-studio clients.</span>
+          </h2>
+          <p style="font-size: 13px; color: var(--ds-ink-secondary); margin-bottom: 18px;">
+            These destinations mirror what opens on a client's smartphone when they tap the TAP TRUST stand at our counter or mirrors.
+          </p>
+
+          <div class="ds-action-grid">
+            <!-- Action 1: Google Review -->
+            <button class="ds-action-item" data-ds-action="salon-review">
+              <div class="ds-action-icon" style="background: #fdf3e7; color: #b4752c;">★</div>
+              <div class="ds-action-text">
+                <strong>Leave a Google review</strong>
+                <small>Helps our independent studio grow · Takes under 20 seconds</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 2: Book Appointment -->
+            <button class="ds-action-item" data-ds-action="salon-booking">
+              <div class="ds-action-icon" style="background: #eaf0dc; color: #33462d;">📅</div>
+              <div class="ds-action-text">
+                <strong>Book your next appointment</strong>
+                <small>Choose your favourite stylist and reserve ahead</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 3: Instagram Lookbook -->
+            <button class="ds-action-item" data-ds-action="salon-portfolio">
+              <div class="ds-action-icon" style="background: #f4ecf5; color: #7f4b82;">✂</div>
+              <div class="ds-action-text">
+                <strong>View studio style portfolio</strong>
+                <small>Explore haircuts, color transformations, and daily updates</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 4: Stylist WhatsApp -->
+            <button class="ds-action-item" data-ds-action="salon-whatsapp">
+              <div class="ds-action-icon" style="background: #e2f0e6; color: #2e663a;">💬</div>
+              <div class="ds-action-text">
+                <strong>Message studio on WhatsApp</strong>
+                <small>Consult before booking or ask about hair treatments</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sample Services & Illustrative Pricing -->
+        <div style="margin-bottom: 36px; padding-top: 24px; border-top: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">SERVICES &amp; PRICING</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            Selected services <span class="serif">&amp; studio menu.</span>
+          </h2>
+          <p style="font-size: 12px; color: var(--ds-ink-tertiary); margin-bottom: 16px;">
+            Prices are illustrative test figures for demonstration purposes.
+          </p>
+
+          <div class="ds-item-grid">
+            <div class="ds-item-card">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Signature Haircut &amp; Finish</h3>
+                <span class="ds-item-price">₹650</span>
+              </div>
+              <p class="ds-item-desc">
+                Consultation, scalp massage, tailored cut, cold towel rinse, and natural texture styling.
+              </p>
+              <div class="ds-item-tags">
+                <span class="ds-tag ds-tag-accent">45 mins</span>
+                <span class="ds-tag">Includes Wash</span>
+              </div>
+            </div>
+
+            <div class="ds-item-card">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Beard Sculpt &amp; Steam</h3>
+                <span class="ds-item-price">₹400</span>
+              </div>
+              <p class="ds-item-desc">
+                Precision blade edge, botanical beard balm conditioning, and eucalyptus hot towel press.
+              </p>
+              <div class="ds-item-tags">
+                <span class="ds-tag ds-tag-accent">30 mins</span>
+                <span class="ds-tag">Hot Towel</span>
+              </div>
+            </div>
+
+            <div class="ds-item-card">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Full Restyle Consultation</h3>
+                <span class="ds-item-price">₹950</span>
+              </div>
+              <p class="ds-item-desc">
+                In-depth face shape analysis, drastic length transformation, treatment mask, and home care tips.
+              </p>
+              <div class="ds-item-tags">
+                <span class="ds-tag ds-tag-accent">60 mins</span>
+                <span class="ds-tag">Master Stylist</span>
+              </div>
+            </div>
+
+            <div class="ds-item-card">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Deep Conditioning Hair Spa</h3>
+                <span class="ds-item-price">₹800</span>
+              </div>
+              <p class="ds-item-desc">
+                Micro-steam hydration, amino-acid repair treatment for stressed hair, and relaxing scalp therapy.
+              </p>
+              <div class="ds-item-tags">
+                <span class="ds-tag ds-tag-accent">40 mins</span>
+                <span class="ds-tag">Organic Serum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Lookbook / Work Showcase -->
+        <div style="margin-bottom: 36px; padding-top: 24px; border-top: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">STUDIO LOOKBOOK</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            Recent cuts &amp; <span class="serif">studio details.</span>
+          </h2>
+
+          <div class="gallery-grid">
+            <div class="gallery-tile" style="background: linear-gradient(135deg, #c7b49a, #998369);">
+              <span class="gallery-tile-label">Modern Textured Crop</span>
+            </div>
+            <div class="gallery-tile" style="background: linear-gradient(135deg, #dfcdb5, #bba488);">
+              <span class="gallery-tile-label">Classic Taper Fade</span>
+            </div>
+            <div class="gallery-tile" style="background: linear-gradient(135deg, #a48f76, #7d6851);">
+              <span class="gallery-tile-label">Studio Interior</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours & Fictional Location Information -->
+        <div style="padding-top: 24px; border-top: 1px solid var(--ds-line); display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="background: var(--ds-surface-subtle); padding: 20px; border-radius: var(--ds-radius-md); border: 1px solid var(--ds-line);">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--ds-ink-tertiary); margin-bottom: 12px;">
+              OPENING HOURS
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; padding: 6px 0; border-bottom: 1px solid var(--ds-line);">
+              <span>Monday – Friday</span>
+              <strong>10:00 AM – 7:30 PM</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; padding: 6px 0; border-bottom: 1px solid var(--ds-line);">
+              <span>Saturday</span>
+              <strong>10:00 AM – 6:00 PM</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; padding: 6px 0;">
+              <span>Sunday</span>
+              <strong style="color: #7a5035;">Appointments Only</strong>
+            </div>
+          </div>
+
+          <div style="background: var(--ds-surface-subtle); padding: 20px; border-radius: var(--ds-radius-md); border: 1px solid var(--ds-line);">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--ds-ink-tertiary); margin-bottom: 12px;">
+              STUDIO LOCATION &amp; CONTACT
+            </div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--ds-ink);">
+              Civil Lines, Sagar, MP
+            </div>
+            <div style="font-size: 12px; color: var(--ds-ink-secondary); margin-top: 4px;">
+              Near Cathedral School Road (Illustrative location)
+            </div>
+            <div style="margin-top: 14px; font-size: 11px; color: var(--ds-moss-accent); font-weight: 600;">
+              ✓ Free Parking Available · High-Speed Wi-Fi
+            </div>
+          </div>
+        </div>
+
+        <!-- Disclosure Disclaimer Banner -->
+        <div class="ds-disclosure-box" style="margin-bottom: 0;">
+          <div class="ds-disclosure-icon" aria-hidden="true">i</div>
+          <div class="ds-disclosure-copy">
+            <h3>Demonstration Experience Notice</h3>
+            <p>
+              Morrow Studio is a fictional hair studio created for the TAP TRUST Demo Studio. Buttons simulate real NFC destinations — in an active business deployment, these open verified Google Reviews, Fresha/Calendly scheduling, and live WhatsApp lines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Universal Demo Footer -->
+  <footer class="ds-footer">
+    <div class="ds-footer-inner">
+      <div class="ds-footer-brand-col">
+        <a class="ds-brand" href="../index.html">
+          <span class="ds-brand-mark" aria-hidden="true"><span></span><span></span></span>
+          <span>TAP<span style="font-weight: 500; color: #77796f; margin-left: 3px;">TRUST</span></span>
+        </a>
+        <p>
+          Morrow Studio demo built with TAP TRUST. Turning counter visits into genuine Google reviews and repeat bookings.
+        </p>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Demo Studio</h4>
+        <ul>
+          <li><a href="../index.html">All 4 Industry Demos</a></li>
+          <li><a href="cafe.html">Next: Café &amp; Restaurant Demo</a></li>
+          <li><a href="property.html">Real Estate Demo</a></li>
+          <li><a href="stay.html">Hotel &amp; Guest Stay Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>TAP TRUST Hardware</h4>
+        <ul>
+          <li><a href="../../index.html#pricing">Review Stands</a></li>
+          <li><a href="../../index.html#solutions">Counter NFC Discs</a></li>
+          <li><a href="../../index.html#how">How Setup Works</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html">← Back to Demo Studio</a></li>
+          <li><a href="../../index.html">← TAP TRUST Main Site</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ds-footer-bottom">
+      <span>© 2026 TAP TRUST · Fictional Morrow Studio Demo</span>
+      <span>No real salon appointment or review was confirmed.</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/demo-studio.js"></script>
+</body>
+</html>

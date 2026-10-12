@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#242d22">
+  <meta name="description" content="The Pavilion Court · Residence 4B — Interactive real estate property brochure demo powered by TAP TRUST NFC yard signs and print tags.">
+  <title>The Pavilion Court — Real Estate Demo | TAP TRUST</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/demo-studio.css">
+  <style>
+    .property-palette {
+      --ds-accent-current: var(--ds-realestate);
+      --ds-accent-current-soft: var(--ds-realestate-soft);
+    }
+    .property-hero-art {
+      height: 340px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      transition: background 0.4s var(--ds-ease-settle);
+      background: linear-gradient(135deg, #1d2a33 0%, #2f4352 60%, #152028 100%);
+      color: #ffffff;
+    }
+    .property-hero-art::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(15, 23, 30, 0.85) 100%);
+      pointer-events: none;
+    }
+    .ds-gallery-thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .ds-gallery-thumb {
+      flex: 1;
+      min-width: 90px;
+      height: 60px;
+      border-radius: var(--ds-radius-sm);
+      border: 2px solid transparent;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: border-color var(--ds-duration-fast), transform var(--ds-duration-fast);
+      display: flex;
+      align-items: flex-end;
+      padding: 4px;
+      color: #ffffff;
+      font-size: 8px;
+      font-weight: 700;
+    }
+    .ds-gallery-thumb.is-active {
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+    .specs-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: var(--ds-surface-subtle);
+      border: 1px solid var(--ds-line);
+      border-radius: var(--ds-radius-md);
+      padding: 16px 20px;
+      margin-block: 22px;
+    }
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .spec-item span {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--ds-ink-tertiary);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .spec-item strong {
+      font-size: 16px;
+      color: var(--ds-ink);
+      font-family: var(--ds-font-display);
+      margin-top: 2px;
+    }
+    .agent-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--ds-surface-subtle);
+      border: 1px solid var(--ds-line);
+      border-radius: var(--ds-radius-md);
+      margin-top: 20px;
+    }
+    .agent-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #cad7e0;
+      color: #253949;
+      display: grid;
+      place-items: center;
+      font-family: var(--ds-font-serif);
+      font-style: italic;
+      font-size: 20px;
+      font-weight: 700;
+      flex: none;
+    }
+    @media (max-width: 640px) {
+      .specs-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body class="ds-body property-palette">
+
+  <!-- Universal Wayfinding Chrome Banner -->
+  <aside class="ds-banner" aria-label="Demo status banner">
+    <div class="ds-banner-content">
+      <span class="ds-banner-badge"><span class="ds-live-dot" aria-hidden="true"></span> DEMO 03 OF 04</span>
+      <span>Real Estate · Linden &amp; Co. Residential</span>
+    </div>
+    <div class="ds-banner-links">
+      <a class="ds-banner-link" href="../index.html">← Back to Demo Studio</a>
+      <a class="ds-banner-link ds-banner-link-accent" href="stay.html">Next Demo (Hotel Stay) →</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Translucent Header -->
+  <header class="ds-header">
+    <div class="ds-header-inner">
+      <a class="ds-brand" href="../index.html" aria-label="Linden & Co. Residential">
+        <span class="ds-brand-mark" style="transform: rotate(0deg); border-color: #253949;" aria-hidden="true">
+          <span style="border-color: #253949; height: 11px;"></span>
+          <span style="border-color: #253949; height: 11px;"></span>
+        </span>
+        <span>linden &amp; co. <span style="font-weight: 500; font-size: 11px; letter-spacing: 1.5px; color: #253949; margin-left: 4px;">RESIDENTIAL</span></span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 11px; font-weight: 700; color: #253949; background: #eaf1f6; padding: 4px 10px; border-radius: 99px;">
+          Yard Sign NFC Tag
+        </span>
+        <button class="ds-btn ds-btn-primary ds-btn-sm" data-ds-action="property-viewing">
+          Book Viewing ↗
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ds-demo-container">
+    <div class="ds-demo-card-shell">
+      <!-- Interactive Photo Gallery Showcase -->
+      <div data-ds-gallery>
+        <div class="property-hero-art ds-gallery-main" style="background: linear-gradient(135deg, #1d2a33 0%, #2f4352 60%, #152028 100%);">
+          <div style="position: relative; z-index: 2;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <span class="ds-badge" style="font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;">
+                  EXCLUSIVE RESIDENTIAL LISTING · SAGAR
+                </span>
+                <h1 style="margin: 6px 0 4px; font-size: clamp(26px, 3.8vw, 38px);">
+                  The Pavilion Court · <span class="serif">Residence 4B</span>
+                </h1>
+                <p class="ds-gallery-caption" style="font-size: 13px; opacity: 0.9; margin: 0;">
+                  Sunlit living salon with floor-to-ceiling garden balcony glazing.
+                </p>
+              </div>
+
+              <!-- Clear Illustrative Price Badge -->
+              <div style="background: rgba(255, 255, 255, 0.95); color: #1c2630; padding: 8px 14px; border-radius: 8px; text-align: right;">
+                <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.8px; color: #72766c;">ILLUSTRATIVE VALUATION</div>
+                <div style="font-family: var(--ds-font-display); font-size: 20px; font-weight: 800;">₹1.85 Cr</div>
+                <div style="font-size: 9px; color: #72766c;">Sample test listing · Not for sale</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thumbnail Selector Bar -->
+        <div style="padding: 14px 28px 0;">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--ds-ink-tertiary); margin-bottom: 6px;">
+            PHOTO SHOWCASE (CLICK TO PREVIEW)
+          </div>
+          <div class="ds-gallery-thumbs">
+            <button class="ds-gallery-thumb is-active" data-title="Sunlit living salon with floor-to-ceiling garden balcony glazing" data-bg="linear-gradient(135deg, #1d2a33 0%, #2f4352 60%, #152028 100%)" style="background: linear-gradient(135deg, #1d2a33, #2f4352);" aria-label="Living Salon photo">
+              Living Salon
+            </button>
+            <button class="ds-gallery-thumb" data-title="Master bedroom suite with morning eastern light and walk-in dressing alcove" data-bg="linear-gradient(135deg, #384234 0%, #52634e 60%, #252e22 100%)" style="background: linear-gradient(135deg, #384234, #52634e);" aria-label="Master Suite photo">
+              Master Suite
+            </button>
+            <button class="ds-gallery-thumb" data-title="Private 380 sq ft garden terrace with open panoramic green views" data-bg="linear-gradient(135deg, #443729 0%, #63503b 60%, #2a2218 100%)" style="background: linear-gradient(135deg, #443729, #63503b);" aria-label="Terrace photo">
+              Private Terrace
+            </button>
+            <button class="ds-gallery-thumb" data-title="Minimalist quartz chef's kitchen with modular built-in pantry" data-bg="linear-gradient(135deg, #2b353a 0%, #43545d 60%, #1e262b 100%)" style="background: linear-gradient(135deg, #2b353a, #43545d);" aria-label="Kitchen photo">
+              Chef Kitchen
+            </button>
+            <button class="ds-gallery-thumb" data-title="Detailed 2,150 sq ft architectural layout and room dimensions" data-bg="linear-gradient(135deg, #232d29 0%, #3a4b44 60%, #171f1b 100%)" style="background: linear-gradient(135deg, #232d29, #3a4b44);" aria-label="Floor Plan photo">
+              Floor Plan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 24px 28px 28px;">
+        <!-- Property Key Specifications Strip -->
+        <div class="specs-strip">
+          <div class="spec-item">
+            <span>BEDROOMS</span>
+            <strong>3 Beds</strong>
+          </div>
+          <div class="spec-item">
+            <span>BATHROOMS</span>
+            <strong>3.5 Baths</strong>
+          </div>
+          <div class="spec-item">
+            <span>SUPER AREA</span>
+            <strong>2,150 sq ft</strong>
+          </div>
+          <div class="spec-item">
+            <span>PARKING / VASTU</span>
+            <strong>2 Bays · North-East</strong>
+          </div>
+        </div>
+
+        <!-- Fast Listing Actions (Yard Sign / Brochure Tap Destinations) -->
+        <div style="margin-bottom: 32px;">
+          <div class="ds-eyebrow">YARD SIGN &amp; BROCHURE DESTINATIONS</div>
+          <h2 class="ds-heading-section" style="font-size: 24px;">
+            Immediate buyer <span class="serif">next steps.</span>
+          </h2>
+          <p style="font-size: 13px; color: var(--ds-ink-secondary); margin-bottom: 18px;">
+            Visitors standing outside the gate or holding the printed flyer tap their smartphone to access these instant utilities.
+          </p>
+
+          <div class="ds-action-grid">
+            <!-- Action 1: Private Viewing Form Jump -->
+            <a class="ds-action-item" href="#schedule-viewing">
+              <div class="ds-action-icon" style="background: #eaf1f6; color: #253949;">📅</div>
+              <div class="ds-action-text">
+                <strong>Schedule an on-site private walkthrough</strong>
+                <small>Select preferred viewing date and time slot · Accompanied by lead agent</small>
+              </div>
+              <div class="ds-action-chevron">↓</div>
+            </a>
+
+            <!-- Action 2: Digital Brochure Spec Sheet -->
+            <button class="ds-action-item" data-ds-action="property-brochure">
+              <div class="ds-action-icon" style="background: #eaf0dc; color: #33462d;">📄</div>
+              <div class="ds-action-text">
+                <strong>Download full architectural spec sheet &amp; floor plan</strong>
+                <small>High-resolution room dimensions, sanctioned permits, and maintenance schedule</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 3: Message Agent -->
+            <button class="ds-action-item" data-ds-action="property-agent">
+              <div class="ds-action-icon" style="background: #fdf3e7; color: #b4752c;">💬</div>
+              <div class="ds-action-text">
+                <strong>Contact listing broker Priya Sharma via WhatsApp</strong>
+                <small>Ask questions on title clearance, bank approvals, or negotiate terms</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 4: Share Property Link -->
+            <button class="ds-action-item" data-ds-action="property-share">
+              <div class="ds-action-icon" style="background: #f0efe8; color: #20221e;">🔗</div>
+              <div class="ds-action-text">
+                <strong>Copy listing link to share with family</strong>
+                <small>Copies clean web destination to clipboard</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Property Features & Amenities Tabs -->
+        <div style="margin-bottom: 36px; padding-top: 24px; border-top: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">RESIDENCE HIGHLIGHTS</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            Crafted architecture &amp; <span class="serif">premium finishes.</span>
+          </h2>
+
+          <div class="ds-tab-nav" role="tablist" data-ds-tabs="property-specs">
+            <button class="ds-tab-btn is-active" role="tab" aria-selected="true" data-ds-tab="all">
+              All Highlights
+            </button>
+            <button class="ds-tab-btn" role="tab" aria-selected="false" data-ds-tab="interior">
+              Interior Specs
+            </button>
+            <button class="ds-tab-btn" role="tab" aria-selected="false" data-ds-tab="society">
+              Community &amp; Security
+            </button>
+          </div>
+
+          <div class="ds-item-grid">
+            <div class="ds-item-card" data-ds-panel-group="property-specs" data-ds-panel="interior">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Italian Statuario Flooring</h3>
+                <span class="ds-tag ds-tag-accent">Interior</span>
+              </div>
+              <p class="ds-item-desc">
+                Seamless full-slab marble in living, dining, and foyer areas with brass hairline inlay borders.
+              </p>
+            </div>
+
+            <div class="ds-item-card" data-ds-panel-group="property-specs" data-ds-panel="interior">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Acoustic Double-Glazed Facade</h3>
+                <span class="ds-tag ds-tag-accent">Glazing</span>
+              </div>
+              <p class="ds-item-desc">
+                High-grade thermally insulated glass providing silence, UV shielding, and energy efficiency.
+              </p>
+            </div>
+
+            <div class="ds-item-card" data-ds-panel-group="property-specs" data-ds-panel="interior">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">380 sq ft Verandah Garden</h3>
+                <span class="ds-tag ds-tag-accent">Private</span>
+              </div>
+              <p class="ds-item-desc">
+                Covered outdoor terrace with automated drip irrigation, stone planters, and morning sunrise views.
+              </p>
+            </div>
+
+            <div class="ds-item-card" data-ds-panel-group="property-specs" data-ds-panel="society">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">Dual EV Fast-Charging Bays</h3>
+                <span class="ds-tag ds-tag-accent">Basement</span>
+              </div>
+              <p class="ds-item-desc">
+                Two dedicated covered parking slots equipped with individual 11kW Type-2 AC charging meters.
+              </p>
+            </div>
+
+            <div class="ds-item-card" data-ds-panel-group="property-specs" data-ds-panel="society">
+              <div class="ds-item-head">
+                <h3 class="ds-item-name">24/7 Monitored Access</h3>
+                <span class="ds-tag ds-tag-accent">Security</span>
+              </div>
+              <p class="ds-item-desc">
+                Boom barrier RFID gate entry, perimeter smart cameras, and digital visitor logs via TAP TRUST concierge.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Viewing Request Interactive Simulation Form -->
+        <div id="schedule-viewing" style="margin-bottom: 36px; padding: 28px; background: var(--ds-surface-subtle); border-radius: var(--ds-radius-lg); border: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">INTERACTIVE DEMO FORM</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            Request a private <span class="serif">on-site viewing.</span>
+          </h2>
+          <p style="font-size: 13px; color: var(--ds-ink-secondary); margin-bottom: 20px;">
+            Experience how a buyer books a slot from an NFC yard sign. No real data is stored or submitted.
+          </p>
+
+          <form id="viewing-demo-form" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 14px; align-items: flex-end;">
+            <div>
+              <label for="viewing-date" style="display: block; font-size: 11px; font-weight: 700; color: var(--ds-ink-secondary); margin-bottom: 6px;">
+                PREFERRED DATE
+              </label>
+              <input type="date" id="viewing-date" required style="width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-sm); font-family: inherit; font-size: 13px; background: #ffffff;">
+            </div>
+
+            <div>
+              <label for="viewing-slot" style="display: block; font-size: 11px; font-weight: 700; color: var(--ds-ink-secondary); margin-bottom: 6px;">
+                TIME WINDOW
+              </label>
+              <select id="viewing-slot" style="width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-sm); font-family: inherit; font-size: 13px; background: #ffffff;">
+                <option value="Morning (10:00 AM – 12:00 PM)">Morning (10:00 AM – 12:00 PM)</option>
+                <option value="Afternoon (02:00 PM – 04:00 PM)">Afternoon (02:00 PM – 04:00 PM)</option>
+                <option value="Golden Hour (04:30 PM – 06:30 PM)" selected>Golden Hour (04:30 PM – 06:30 PM)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="ds-btn ds-btn-primary" style="height: 44px;">
+              Request Walkthrough Demo
+            </button>
+          </form>
+
+          <!-- Listing Agent Card -->
+          <div class="agent-card">
+            <div class="agent-avatar">PS</div>
+            <div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--ds-ink);">Priya Sharma</div>
+              <div style="font-size: 11px; color: var(--ds-ink-secondary);">Senior Residential Broker · Linden &amp; Co.</div>
+              <div style="font-size: 10px; color: var(--ds-ink-tertiary); margin-top: 2px;">RERA Reg: Illustrative Demo · Sagar, MP</div>
+            </div>
+            <button class="ds-btn ds-btn-secondary ds-btn-sm" style="margin-left: auto;" data-ds-action="property-agent">
+              Call Agent
+            </button>
+          </div>
+        </div>
+
+        <!-- Disclosure Disclaimer Banner -->
+        <div class="ds-disclosure-box" style="margin-bottom: 0;">
+          <div class="ds-disclosure-icon" aria-hidden="true">i</div>
+          <div class="ds-disclosure-copy">
+            <h3>Demonstration Experience Notice</h3>
+            <p>
+              The Pavilion Court, Residence 4B, and Linden &amp; Co. are entirely fictional concepts created for the TAP TRUST Demo Studio. This property is not for sale, and submitting viewing requests will not contact any agency or broker.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Universal Demo Footer -->
+  <footer class="ds-footer">
+    <div class="ds-footer-inner">
+      <div class="ds-footer-brand-col">
+        <a class="ds-brand" href="../index.html">
+          <span class="ds-brand-mark" aria-hidden="true"><span></span><span></span></span>
+          <span>TAP<span style="font-weight: 500; color: #77796f; margin-left: 3px;">TRUST</span></span>
+        </a>
+        <p>
+          Real estate property destination demo powered by TAP TRUST. Transforming yard signs and open house print brochures into instant private viewing bookings.
+        </p>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Demo Studio</h4>
+        <ul>
+          <li><a href="../index.html">All 4 Industry Demos</a></li>
+          <li><a href="salon.html">Barber &amp; Salon Demo</a></li>
+          <li><a href="cafe.html">Café &amp; Restaurant Demo</a></li>
+          <li><a href="stay.html">Next: Hotel &amp; Guest Stay Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Real Estate Hardware</h4>
+        <ul>
+          <li><a href="../../index.html#solutions">Weatherproof Yard Sign Tags</a></li>
+          <li><a href="../../index.html#pricing">Brochure NFC Inserts</a></li>
+          <li><a href="../../index.html#how">Instant Buyer Lead Capture</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html">← Back to Demo Studio</a></li>
+          <li><a href="../../index.html">← TAP TRUST Main Site</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ds-footer-bottom">
+      <span>© 2026 TAP TRUST · Fictional Real Estate Showcase Demo</span>
+      <span>No real real-estate enquiry or property transaction took place.</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/demo-studio.js"></script>
+</body>
+</html>

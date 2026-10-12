@@ -1,38 +1,67 @@
-# TAP TRUST — static demo website
+# TAP TRUST — Demo Studio & Static Website
 
-A responsive, GitHub Pages-ready brand website and fictional salon customer-page demo.
+A responsive, GitHub Pages-ready website and 4-industry interactive **Demo Studio** for TAP TRUST physical NFC stands and QR codes.
 
 ## What's included
-- `index.html` — TAP TRUST brand page, how it works, solutions and illustrative pilot pricing.
-- `demo/index.html` — fictional Morrow Studio customer experience.
-- `assets/style.css` — responsive visual system and page styling.
-- `assets/script.js` — mobile navigation, demo action feedback and reduced-motion-aware reveal effects.
 
-## Preview locally
-Open `index.html` in a browser. For a more reliable local preview, run a static server from this folder:
-
-```bash
-python -m http.server 8080
+```
+Tap-Trust/
+├── index.html                  # TAP TRUST brand homepage & solutions overview
+├── assets/
+│   ├── style.css               # Core website design system & responsive layout
+│   ├── script.js               # Homepage mobile menu & intersection observer
+│   ├── demo-studio.css         # Demo Studio design system (Apple HIG fluid motion, tokens, modals)
+│   └── demo-studio.js          # Studio interaction engine (accessible modal dialogs, tabs, simulated actions)
+└── demo/
+    ├── index.html              # Demo Studio Hub (industry directory, flow explanation, phone+stand visual)
+    └── pages/
+        ├── salon.html          # Demo 01: Barber & Salon (Morrow Studio — reviews, booking, price list)
+        ├── cafe.html           # Demo 02: Café & Restaurant (Slow Morning Café — contactless menu, Wi-Fi, table reserve)
+        ├── property.html       # Demo 03: Real Estate (The Pavilion Court — interactive gallery, floor plan, viewing request)
+        └── stay.html           # Demo 04: Hotel & Guest Stay (The Koya House — in-room Wi-Fi, house rules, neighborhood guide)
 ```
 
-Then open `http://localhost:8080`.
+## Preview locally
 
-## Publish on GitHub Pages
-1. Create a public repository named `tap-trust` (or another name you prefer).
-2. Upload the contents of this folder to the repository root, preserving the `assets/` and `demo/` folders.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
-5. When GitHub provides the site URL, test both the homepage and `/demo/` on mobile data.
+Run a local HTTP server from this root directory:
 
-GitHub Pages guide: https://docs.github.com/en/pages/quickstart
+```bash
+# Using Python
+python -m http.server 8080
 
-## Design direction
-The visual system uses warm paper-like surfaces, ink-black typography, a muted green signal color, restrained editorial serif accents, generous spacing, and one custom NFC stand/phone illustration. It borrows design-review principles from Apple's Human Interface Guidelines—clarity, accessibility, predictable interaction, and reduced-motion support—while keeping the web experience distinct from a native Apple interface.
+# Or using Node
+npx serve .
+```
 
-## Before real customer use
-- All Morrow Studio details are fictional. Do not present the page as a real business.
-- Replace the sample action handlers with the customer's actual Google review, booking, Instagram and WhatsApp URLs.
-- Replace the demo rating and opening hours with verified details, or remove them.
-- Current package prices are explicitly marked as illustrative test prices.
-- For the first physical prototype, encode the published `https://.../demo/` URL in the NFC tag and create a QR code containing the exact same URL. For a real client, use a client-specific destination.
-- A static GitHub Pages site cannot securely manage editable customer redirects or a customer database by itself. Add a redirect service/backend only after validating demand.
+Then visit:
+- Homepage: `http://localhost:8080/`
+- Demo Studio Hub: `http://localhost:8080/demo/`
+- Salon Demo: `http://localhost:8080/demo/pages/salon.html`
+- Café Demo: `http://localhost:8080/demo/pages/cafe.html`
+- Real Estate Demo: `http://localhost:8080/demo/pages/property.html`
+- Hotel Stay Demo: `http://localhost:8080/demo/pages/stay.html`
+
+## GitHub Pages Deployment
+
+The site is built with strictly relative paths (`../`, `../../`, etc.) and zero build dependencies. It works seamlessly under:
+- GitHub Pages project paths (e.g. `https://ansh-sen.github.io/Tap-Trust/` and `/Tap-Trust/demo/`)
+- Custom apex domains (e.g. `https://example.com/`)
+- Local filesystem preview (`file:///...`)
+
+To deploy to GitHub Pages:
+1. Merge the `feature/demo-studio-redesign` branch into `main`.
+2. Push `main` to `origin`.
+3. In repository **Settings → Pages**, ensure **Source** is set to `Deploy from a branch` (`main`, `/ (root)`).
+
+## Design & Motion Foundations (Apple HIG)
+
+The redesigned Demo Studio follows the motion, accessibility, and interaction principles outlined in Apple WWDC design talks (*Designing Fluid Interfaces* & *WWDC Typography/Craft*):
+1. **Instant Response on Press**: Tactile feedback on pointer-down (`:active` scale), killing click latency.
+2. **Translucent Materials**: Subtle backdrop-filter layers with light top edges and high-contrast typography.
+3. **Interruptible Accessible Dialogs**: Simulated actions open in an accessible dialog with `Escape` key listeners, focus restoration, backdrop dismissals, and honest demo disclosures.
+4. **Accessible Reduced-Motion**: Full `@media (prefers-reduced-motion: reduce)` support replacing physical transforms with clean instant cross-fades.
+5. **High-Contrast Support**: Clean boundaries and WCAG AA color ratios for dark ink on warm paper surfaces.
+
+## Demo Disclosures
+
+All business names (Morrow Studio, Slow Morning Café, Linden & Co., The Koya House), addresses, menus, service prices, property valuations, and guest credentials are fictional mockups created solely to demonstrate how TAP TRUST hardware bridges physical foot traffic to digital action.

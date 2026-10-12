@@ -1,1 +1,434 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f2"><meta name="description" content="A sample customer landing page for Morrow Studio, created to demonstrate TAP TRUST NFC and QR experiences."><title>Morrow Studio — Customer demo | TAP TRUST</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body class="demo-body"><div class="demo-banner"><span><span class="live-dot"></span> INTERACTIVE SAMPLE EXPERIENCE</span><a href="../index.html">← Back to TAP TRUST</a></div><header class="demo-header"><a class="brand" href="index.html" aria-label="Morrow Studio"><span class="morrow-symbol">m.</span><span class="morrow-word">morrow <small>STUDIO</small></span></a><a class="button button-dark button-small" href="#contact">Find us <span>↗</span></a></header><main><section class="salon-hero"><div class="salon-image"><div class="salon-image-label">THE ART OF FEELING LIKE YOU.</div><div class="salon-image-shape shape-a"></div><div class="salon-image-shape shape-b"></div><div class="salon-image-stamp">M<br><small>STUDIO</small></div></div><div class="salon-intro"><div class="eyebrow">INDEPENDENT HAIR STUDIO · SAGAR, MP</div><h1>Your next<br>good hair day.</h1><p>A thoughtful cut, a little reset, and a style that feels like you. Welcome to Morrow Studio.</p><div class="salon-rating"><span>★★★★★</span><strong>4.9</strong><small>Sample rating · demo only</small></div><a class="button button-dark salon-primary" href="#actions">What would you like to do? <span>↓</span></a></div></section><section class="salon-actions" id="actions"><div class="salon-section-top"><div><div class="eyebrow">GOOD TO SEE YOU</div><h2>Where to <span class="serif">next?</span></h2></div><p>Choose an action below. This is a demo page, so the buttons show sample interactions rather than contacting a real business.</p></div><div class="action-list"><button class="action-item" data-demo-action="review"><span class="action-icon review-action-icon">★</span><span class="action-copy"><strong>Leave a review</strong><small>Share your experience with others</small></span><span class="action-arrow">↗</span></button><button class="action-item" data-demo-action="booking"><span class="action-icon booking-action-icon">✳</span><span class="action-copy"><strong>Book an appointment</strong><small>Find a time that works for you</small></span><span class="action-arrow">↗</span></button><button class="action-item" data-demo-action="instagram"><span class="action-icon social-action-icon">◎</span><span class="action-copy"><strong>See our work</strong><small>Style inspiration and studio updates</small></span><span class="action-arrow">↗</span></button><button class="action-item" data-demo-action="whatsapp"><span class="action-icon message-action-icon">↗</span><span class="action-copy"><strong>Ask us a question</strong><small>Get in touch before your visit</small></span><span class="action-arrow">↗</span></button></div><div class="demo-notice" id="demo-notice" role="status" aria-live="polite"><span class="notice-symbol">i</span><p><strong>Sample interaction</strong><br>This is a fictional salon page. Replace its demo links with the real business destinations before publishing for a customer.</p><button id="notice-close" aria-label="Dismiss message">×</button></div></section><section class="salon-info" id="contact"><div class="salon-info-copy"><div class="eyebrow">A LITTLE ABOUT US</div><h2>Good hair.<br><span class="serif">Good energy.</span></h2><p>Morrow Studio is a fictional independent salon created to show how a TAP TRUST page can bring important customer actions into one calm, branded place.</p><a class="text-link" href="../index.html">See how TAP TRUST works <span>↗</span></a></div><div class="hours-card"><div class="hours-title"><span>VISIT THE STUDIO</span><span class="hours-dot"></span></div><div class="hours-row"><span>Mon – Fri</span><strong>10:00 – 19:00</strong></div><div class="hours-row"><span>Saturday</span><strong>10:00 – 17:00</strong></div><div class="hours-row"><span>Sunday</span><strong>By appointment</strong></div><div class="address-block"><span>DEMO LOCATION</span><strong>Sagar, Madhya Pradesh</strong><small>Fictional details · replace before use</small></div></div></section></main><footer class="demo-footer"><a class="brand" href="../index.html"><span class="brand-mark"><span></span><span></span></span><span>TAP<span class="brand-light">TRUST</span></span></a><p>Experience designed with TAP TRUST <span>↗</span></p><span class="demo-footer-note">DEMO PAGE · NOT A REAL SALON</span></footer><script src="../assets/script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#242d22">
+  <meta name="description" content="Explore TAP TRUST Demo Studio — Experience 4 interactive, mobile-first NFC and QR customer destinations for Barber & Salon, Café & Restaurant, Real Estate, and Hotel stays.">
+  <title>Demo Studio — TAP TRUST</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/demo-studio.css">
+</head>
+<body class="ds-body">
+
+  <!-- Universal Wayfinding Chrome Banner -->
+  <aside class="ds-banner" aria-label="Demo announcement">
+    <div class="ds-banner-content">
+      <span class="ds-banner-badge"><span class="ds-live-dot" aria-hidden="true"></span> STUDIO PREVIEW</span>
+      <span>Four interactive industry demonstrations</span>
+    </div>
+    <div class="ds-banner-links">
+      <a class="ds-banner-link" href="../index.html">← Back to TAP TRUST Overview</a>
+      <a class="ds-banner-link ds-banner-link-accent" href="#industries">Jump to Industries ↓</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Translucent Header -->
+  <header class="ds-header">
+    <div class="ds-header-inner">
+      <a class="ds-brand" href="../index.html" aria-label="TAP TRUST Home">
+        <span class="ds-brand-mark" aria-hidden="true"><span></span><span></span></span>
+        <span>TAP<span style="font-weight: 500; color: #77796f; margin-left: 3px;">TRUST</span></span>
+        <span class="ds-brand-tag">DEMO STUDIO</span>
+      </a>
+
+      <nav class="ds-header-nav" aria-label="Demo Studio Navigation">
+        <a class="ds-nav-link" href="../index.html#how">How TAP TRUST Works</a>
+        <a class="ds-nav-link" href="#how-it-works">The Flow</a>
+        <a class="ds-btn ds-btn-primary ds-btn-sm" href="#industries">Explore Demos ↓</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Studio Hero -->
+    <section class="ds-hub-hero">
+      <div class="ds-container">
+        <div class="ds-hub-hero-grid">
+          <div>
+            <div class="ds-eyebrow">
+              <span class="ds-banner-badge" style="background:#eaf0dc; color:#4a652a; padding: 2px 7px;">
+                <span class="ds-live-dot" style="background:#779944;"></span> NO APP REQUIRED
+              </span>
+              PHYSICAL TO DIGITAL BRIDGE
+            </div>
+            
+            <h1 class="ds-heading-display">
+              One small tap.<br>
+              <span class="serif">Four real moments.</span>
+            </h1>
+
+            <p class="ds-lede">
+              TAP TRUST combines NFC hardware stands and QR codes so local businesses connect in-person customers to what matters next — reviews, menus, booking links, or Wi-Fi — with zero app download.
+            </p>
+
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a class="ds-btn ds-btn-primary" href="#industries">
+                Browse Industry Demos <span aria-hidden="true">↓</span>
+              </a>
+              <a class="ds-btn ds-btn-secondary" href="../index.html">
+                Main Site Overview <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="ds-hub-proof-strip">
+              <div class="ds-proof-item">
+                <div class="ds-proof-icon" aria-hidden="true">⚡</div>
+                <div>
+                  <strong>Instant response</strong><br>
+                  Under 2 seconds to load
+                </div>
+              </div>
+              <div class="ds-proof-item">
+                <div class="ds-proof-icon" aria-hidden="true">✓</div>
+                <div>
+                  <strong>Works on iOS &amp; Android</strong><br>
+                  Native browser experience
+                </div>
+              </div>
+              <div class="ds-proof-item">
+                <div class="ds-proof-icon" aria-hidden="true">◎</div>
+                <div>
+                  <strong>NFC + QR fallback</strong><br>
+                  Accessible to every device
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Device Illustration -->
+          <div class="ds-device-stage" aria-label="Illustration of phone interacting with TAP TRUST stand">
+            <div class="ds-device-stage-bg"></div>
+            <div class="ds-device-ripple ds-device-ripple-1"></div>
+            <div class="ds-device-ripple ds-device-ripple-2"></div>
+
+            <div class="ds-floating-chip ds-floating-chip-top">
+              <span style="color:#718a4d;">●</span> 1 Tap = Instant destination
+            </div>
+
+            <!-- Phone mockup with live preview -->
+            <div class="ds-phone-model">
+              <div class="ds-phone-screen">
+                <div class="ds-phone-notch"></div>
+                <div class="ds-phone-pill">
+                  <span style="font-size: 8px;">✓</span> Tap detected
+                </div>
+                <div class="ds-phone-brand">morrow studio</div>
+                <div class="ds-phone-sub">Independent Hair Studio</div>
+                <div style="background:#e8dfd5; height: 110px; border-radius: 8px; margin-bottom: 10px; display: grid; place-items: center; color: #7a5035; font-size: 10px; font-weight: 700;">
+                  ★ 4.9 · 120+ REVIEWS
+                </div>
+                <div class="ds-phone-btn">
+                  <span>Leave a Google review</span>
+                  <span>↗</span>
+                </div>
+                <div class="ds-phone-btn ds-phone-btn-subtle">
+                  <span>Book an appointment</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- NFC Stand mockup -->
+            <div class="ds-stand-model">
+              <div class="ds-stand-brand">TAP<span>TRUST</span></div>
+              <div class="ds-stand-chip" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 10a8 8 0 0 1 8-8m0 0a8 8 0 0 1 8 8m-13 0a5 5 0 0 1 5-5m0 0a5 5 0 0 1 5 5m-7 0a2 2 0 0 1 2-2m0 0a2 2 0 0 1 2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              </div>
+              <div class="ds-stand-caption">TAP HERE</div>
+              <div class="ds-stand-qr-wrap" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="#20221e"><rect x="2" y="2" width="10" height="10" rx="2" fill="none" stroke="#20221e" stroke-width="2"/><rect x="5" y="5" width="4" height="4"/><rect x="20" y="2" width="10" height="10" rx="2" fill="none" stroke="#20221e" stroke-width="2"/><rect x="23" y="5" width="4" height="4"/><rect x="2" y="20" width="10" height="10" rx="2" fill="none" stroke="#20221e" stroke-width="2"/><rect x="5" y="23" width="4" height="4"/><rect x="15" y="4" width="2" height="6"/><rect x="15" y="14" width="6" height="4"/><rect x="22" y="20" width="6" height="3"/><rect x="15" y="25" width="4" height="4"/><rect x="24" y="26" width="4" height="4"/></svg>
+              </div>
+              <div class="ds-stand-caption">OR SCAN QR</div>
+              <div class="ds-stand-base"></div>
+            </div>
+
+            <div class="ds-floating-chip ds-floating-chip-bottom">
+              <span style="color:#33462d;">✓</span> Dual NFC + QR Backup
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Selector Grid -->
+    <section class="ds-section" id="industries">
+      <div class="ds-container">
+        <div>
+          <div class="ds-eyebrow">INDUSTRY DIRECTORY</div>
+          <h2 class="ds-heading-section">
+            Choose an experience to <span class="serif">test in action.</span>
+          </h2>
+          <p class="ds-lede">
+            Each demonstration simulates the exact mobile customer page that opens when someone taps an NFC tag or scans a QR stand at your physical location.
+          </p>
+        </div>
+
+        <div class="ds-industry-grid">
+          <!-- Card 1: Barber & Salon -->
+          <article class="ds-industry-card">
+            <div class="ds-industry-art ds-art-salon">
+              <div class="ds-art-widget">
+                <div class="ds-art-widget-header">
+                  <span class="ds-art-badge ds-art-badge-salon">Checkout Stand</span>
+                  <span style="font-size: 10px; color: #7a5035; font-weight: 700;">★ 4.9 RATED</span>
+                </div>
+                <div class="ds-art-widget-title">Morrow Studio</div>
+                <div class="ds-art-widget-detail">Independent Hair &amp; Grooming · Sagar, MP</div>
+                <div class="ds-art-widget-row">
+                  <span>Customer action</span>
+                  <span>Google Review ↗</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ds-industry-content">
+              <div class="ds-industry-meta">
+                <span class="ds-industry-category">DEMO 01</span>
+                <span class="ds-tag ds-tag-accent">REVIEWS &amp; BOOKING</span>
+              </div>
+              <h3 class="ds-industry-title">Barber &amp; Salon</h3>
+              <p class="ds-industry-desc">
+                Solves review hesitation at checkout. Customers tap the mirror or counter stand to leave a Google review in seconds, book their next visit, or view styling work on Instagram.
+              </p>
+              <div class="ds-industry-features">
+                <span class="ds-feature-tag">1-Tap Google Reviews</span>
+                <span class="ds-feature-tag">Appointment Booking</span>
+                <span class="ds-feature-tag">Service Price List</span>
+                <span class="ds-feature-tag">Stylist WhatsApp</span>
+              </div>
+              <a class="ds-card-action" href="pages/salon.html">
+                Open Morrow Studio Demo <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Café & Restaurant -->
+          <article class="ds-industry-card">
+            <div class="ds-industry-art ds-art-cafe">
+              <div class="ds-art-widget">
+                <div class="ds-art-widget-header">
+                  <span class="ds-art-badge ds-art-badge-cafe">Table 04 Disc</span>
+                  <span style="font-size: 10px; color: #7d5225; font-weight: 700;">OPEN DAILY</span>
+                </div>
+                <div class="ds-art-widget-title">Slow Morning Café</div>
+                <div class="ds-art-widget-detail">Artisanal Bakery &amp; Pour-Overs</div>
+                <div class="ds-art-widget-row">
+                  <span>Live Menu</span>
+                  <span>Dietary Tags ↗</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ds-industry-content">
+              <div class="ds-industry-meta">
+                <span class="ds-industry-category">DEMO 02</span>
+                <span class="ds-tag ds-tag-accent">CONTACTLESS MENU</span>
+              </div>
+              <h3 class="ds-industry-title">Café &amp; Restaurant</h3>
+              <p class="ds-industry-desc">
+                Solves messy paper menus and slow service. Diners tap the table stand to browse fresh filter coffees, seasonal bakes, dietary filters, guest Wi-Fi, and Google Maps directions.
+              </p>
+              <div class="ds-industry-features">
+                <span class="ds-feature-tag">Interactive Category Tabs</span>
+                <span class="ds-feature-tag">Dietary Indicators</span>
+                <span class="ds-feature-tag">Guest Wi-Fi Setup</span>
+                <span class="ds-feature-tag">Table Reservations</span>
+              </div>
+              <a class="ds-card-action" href="pages/cafe.html">
+                Open Slow Morning Café Demo <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Real Estate -->
+          <article class="ds-industry-card">
+            <div class="ds-industry-art ds-art-realestate">
+              <div class="ds-art-widget">
+                <div class="ds-art-widget-header">
+                  <span class="ds-art-badge ds-art-badge-realestate">Yard Sign Tag</span>
+                  <span style="font-size: 10px; color: #253949; font-weight: 700;">₹1.85 CR</span>
+                </div>
+                <div class="ds-art-widget-title">The Pavilion Court</div>
+                <div class="ds-art-widget-detail">Residence 4B · 3 BHK Garden Home</div>
+                <div class="ds-art-widget-row">
+                  <span>Curated Walkthrough</span>
+                  <span>Request Viewing ↗</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ds-industry-content">
+              <div class="ds-industry-meta">
+                <span class="ds-industry-category">DEMO 03</span>
+                <span class="ds-tag ds-tag-accent">PROPERTY SHOWCASE</span>
+              </div>
+              <h3 class="ds-industry-title">Real Estate</h3>
+              <p class="ds-industry-desc">
+                Solves lost buyer interest at open houses and yard signs. Prospective buyers tap to view architectural photos, floor plan specs, and instantly request a private viewing with the agent.
+              </p>
+              <div class="ds-industry-features">
+                <span class="ds-feature-tag">Photo Gallery Switcher</span>
+                <span class="ds-feature-tag">Floor Plan Dimensions</span>
+                <span class="ds-feature-tag">Schedule Private Walkthrough</span>
+                <span class="ds-feature-tag">Listing Agent Contact</span>
+              </div>
+              <a class="ds-card-action" href="pages/property.html">
+                Open Pavilion Court Demo <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: Hotel & Guest Stay -->
+          <article class="ds-industry-card">
+            <div class="ds-industry-art ds-art-hotel">
+              <div class="ds-art-widget">
+                <div class="ds-art-widget-header">
+                  <span class="ds-art-badge ds-art-badge-hotel">Room 204 Bedside</span>
+                  <span style="font-size: 10px; color: #2a3a30; font-weight: 700;">GUEST COMPANION</span>
+                </div>
+                <div class="ds-art-widget-title">The Koya House</div>
+                <div class="ds-art-widget-detail">Heritage Boutique Stay · Sagar</div>
+                <div class="ds-art-widget-row">
+                  <span>Bedside Stand</span>
+                  <span>1-Tap Wi-Fi ↗</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ds-industry-content">
+              <div class="ds-industry-meta">
+                <span class="ds-industry-category">DEMO 04</span>
+                <span class="ds-tag ds-tag-accent">IN-ROOM CONCIERGE</span>
+              </div>
+              <h3 class="ds-industry-title">Hotel &amp; Guest Stay</h3>
+              <p class="ds-industry-desc">
+                Solves repetitive front-desk calls. In-room bedside stands give guests instant Wi-Fi passwords, breakfast hours, house rules, curated neighborhood spots, and WhatsApp duty-manager access.
+              </p>
+              <div class="ds-industry-features">
+                <span class="ds-feature-tag">1-Tap Wi-Fi Password Copy</span>
+                <span class="ds-feature-tag">Check-in / House Rules</span>
+                <span class="ds-feature-tag">Local Curated Map</span>
+                <span class="ds-feature-tag">Private Duty-Manager Note</span>
+              </div>
+              <a class="ds-card-action" href="pages/stay.html">
+                Open The Koya House Demo <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works (Real Flow) -->
+    <section class="ds-section" id="how-it-works" style="background:#eeeee7;">
+      <div class="ds-container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <div class="ds-eyebrow" style="justify-content: center;">THE FRICTIONLESS JOURNEY</div>
+          <h2 class="ds-heading-section">
+            Three simple beats.<br><span class="serif">Zero customer resistance.</span>
+          </h2>
+          <p class="ds-lede" style="margin-inline: auto;">
+            Designed to feel effortless for customers of any tech ability.
+          </p>
+        </div>
+
+        <div class="ds-steps-grid">
+          <article class="ds-step-item">
+            <div class="ds-step-num">STEP 01 <span>PHYSICAL TAP</span></div>
+            <div class="ds-step-icon" aria-hidden="true">⌁</div>
+            <h3 class="ds-step-title">Customer taps or scans</h3>
+            <p class="ds-step-desc">
+              At the checkout counter, table, mirror, or entrance, the customer taps their smartphone against the TAP TRUST stand or scans the high-contrast QR backup.
+            </p>
+          </article>
+
+          <article class="ds-step-item">
+            <div class="ds-step-num">STEP 02 <span>INSTANT BROWSER</span></div>
+            <div class="ds-step-icon" aria-hidden="true">⚡</div>
+            <h3 class="ds-step-title">The destination opens</h3>
+            <p class="ds-step-desc">
+              The customer's native browser launches immediately. No app store installation, no sign-ups, no permissions, and no typing URLs on a keyboard.
+            </p>
+          </article>
+
+          <article class="ds-step-item">
+            <div class="ds-step-num">STEP 03 <span>HIGH VALUE ACTION</span></div>
+            <div class="ds-step-icon" aria-hidden="true">★</div>
+            <h3 class="ds-step-title">Customer acts in seconds</h3>
+            <p class="ds-step-desc">
+              They leave a 5-star Google review, book their next appointment, copy guest Wi-Fi, or message your team on WhatsApp while they are still in your venue.
+            </p>
+          </article>
+        </div>
+
+        <!-- Disclosure Callout -->
+        <div class="ds-disclosure-box">
+          <div class="ds-disclosure-icon" aria-hidden="true">i</div>
+          <div class="ds-disclosure-copy">
+            <h3>Illustrative Demonstration Disclosure</h3>
+            <p>
+              All businesses, addresses, service fees, property valuations, and guest credentials across these four demonstrations are fictional mockups built to illustrate the TAP TRUST system. Clicking simulated actions displays honest feedback about the underlying mechanics without sending real data or submitting live reviews.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="ds-footer">
+    <div class="ds-footer-inner">
+      <div class="ds-footer-brand-col">
+        <a class="ds-brand" href="../index.html">
+          <span class="ds-brand-mark" aria-hidden="true"><span></span><span></span></span>
+          <span>TAP<span style="font-weight: 500; color: #77796f; margin-left: 3px;">TRUST</span></span>
+        </a>
+        <p>
+          Physical NFC stands and QR codes engineered for local businesses. Turning casual foot traffic into repeat customers.
+        </p>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Demo Studio</h4>
+        <ul>
+          <li><a href="pages/salon.html">Barber &amp; Salon</a></li>
+          <li><a href="pages/cafe.html">Café &amp; Restaurant</a></li>
+          <li><a href="pages/property.html">Real Estate</a></li>
+          <li><a href="pages/stay.html">Hotel &amp; Guest Stay</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Product &amp; Hardware</h4>
+        <ul>
+          <li><a href="../index.html#how">How TAP TRUST Works</a></li>
+          <li><a href="../index.html#solutions">Hardware Solutions</a></li>
+          <li><a href="../index.html#pricing">Pilot Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="../index.html">Main Website</a></li>
+          <li><a href="#how-it-works">The Customer Journey</a></li>
+          <li><a href="#industries">Browse Directory</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ds-footer-bottom">
+      <span>© 2026 TAP TRUST · Demo Studio Build</span>
+      <span>Designed with Apple fluid motion principles and honest interactive simulations.</span>
+    </div>
+  </footer>
+
+  <script src="../assets/demo-studio.js"></script>
+</body>
+</html>

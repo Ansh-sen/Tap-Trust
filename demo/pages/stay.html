@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#242d22">
+  <meta name="description" content="The Koya House — Bedside in-room digital concierge demo powered by TAP TRUST NFC tags and guest room QR stands.">
+  <title>The Koya House — Hotel &amp; Guest Stay Demo | TAP TRUST</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/demo-studio.css">
+  <style>
+    .stay-palette {
+      --ds-accent-current: var(--ds-hotel);
+      --ds-accent-current-soft: var(--ds-hotel-soft);
+    }
+    .stay-hero-art {
+      background: linear-gradient(135deg, #1b261f 0%, #2f4236 60%, #151e18 100%);
+      color: #ffffff;
+      position: relative;
+    }
+    .wifi-card {
+      background: linear-gradient(145deg, #f5f8f5 0%, #e8f0e9 100%);
+      border: 1px solid #d4e0d6;
+      border-radius: var(--ds-radius-lg);
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-block: 20px;
+    }
+    .wifi-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .wifi-code {
+      font-family: monospace;
+      font-size: 15px;
+      font-weight: 700;
+      color: #243529;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .guide-card {
+      background: var(--ds-surface-subtle);
+      border: 1px solid var(--ds-line);
+      border-radius: var(--ds-radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .guide-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--ds-moss-accent);
+      margin-bottom: 6px;
+    }
+    .guide-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ds-ink);
+      margin: 0 0 4px;
+    }
+    .guide-desc {
+      font-size: 11px;
+      color: var(--ds-ink-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .wifi-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="ds-body stay-palette">
+
+  <!-- Universal Wayfinding Chrome Banner -->
+  <aside class="ds-banner" aria-label="Demo status banner">
+    <div class="ds-banner-content">
+      <span class="ds-banner-badge"><span class="ds-live-dot" aria-hidden="true"></span> DEMO 04 OF 04</span>
+      <span>Hotel &amp; Guest Stay · The Koya House</span>
+    </div>
+    <div class="ds-banner-links">
+      <a class="ds-banner-link" href="../index.html">← Back to Demo Studio</a>
+      <a class="ds-banner-link ds-banner-link-accent" href="salon.html">First Demo (Salon) →</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Translucent Header -->
+  <header class="ds-header">
+    <div class="ds-header-inner">
+      <a class="ds-brand" href="../index.html" aria-label="The Koya House">
+        <span class="ds-brand-mark" style="transform: rotate(0deg); border-color: #2a3a30;" aria-hidden="true">
+          <span style="border-color: #2a3a30; height: 12px;"></span>
+          <span style="border-color: #2a3a30; height: 6px;"></span>
+        </span>
+        <span>the koya house <span style="font-weight: 500; font-size: 11px; letter-spacing: 1.5px; color: #2a3a30; margin-left: 4px;">HERITAGE STAY</span></span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 11px; font-weight: 700; color: #2a3a30; background: #e9f0ea; padding: 4px 10px; border-radius: 99px;">
+          Room 204 Bedside
+        </span>
+        <button class="ds-btn ds-btn-primary ds-btn-sm" data-ds-action="stay-reception">
+          Reception Ext. 0
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ds-demo-container">
+    <div class="ds-demo-card-shell">
+      <!-- Welcoming Hero Header -->
+      <div class="ds-demo-hero-art stay-hero-art">
+        <div class="ds-demo-hero-content">
+          <span class="ds-badge" style="font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;">
+            IN-ROOM GUEST CONCIERGE · ROOM 204
+          </span>
+          <h1>Welcome to <span class="serif">The Koya House.</span></h1>
+          <p>
+            Your calm sanctuary in the heritage quarter. Tap your bedside stand at any time during your stay to connect to Wi-Fi, order amenities, view dining hours, or message the duty manager.
+          </p>
+          <div style="display: flex; align-items: center; gap: 14px; margin-top: 14px; font-size: 12px;">
+            <span>🗝 Courtyard Garden Suite</span>
+            <span>· Check-out: 11:00 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 28px;">
+        <!-- Guest Essential 1: 1-Tap Bedside Wi-Fi Card -->
+        <div class="wifi-card">
+          <div class="wifi-detail">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #435b49; text-transform: uppercase;">
+              GUEST HIGH-SPEED WI-FI (200 MBPS)
+            </div>
+            <div style="font-size: 13px; color: var(--ds-ink); margin-top: 2px;">
+              Network: <strong>KoyaHouse-Guest</strong>
+            </div>
+            <div style="margin-top: 6px;">
+              Password: <span class="wifi-code">stayquietly2026</span>
+              <small style="color: var(--ds-ink-tertiary); margin-left: 6px;">(Fictional test credentials)</small>
+            </div>
+          </div>
+          <button class="ds-btn ds-btn-moss ds-btn-sm" data-ds-action="stay-wifi">
+            Copy Password 📶
+          </button>
+        </div>
+
+        <!-- In-Room Guest Destinations (NFC Bedside Stand Actions) -->
+        <div style="margin-bottom: 32px;">
+          <div class="ds-eyebrow">IN-ROOM DIGITAL CONCIERGE</div>
+          <h2 class="ds-heading-section" style="font-size: 24px;">
+            Instant services at <span class="serif">your fingertips.</span>
+          </h2>
+          <p style="font-size: 13px; color: var(--ds-ink-secondary); margin-bottom: 18px;">
+            Tap your bedside table stand instead of dialing down to reception.
+          </p>
+
+          <div class="ds-action-grid">
+            <!-- Action 1: Duty Manager WhatsApp -->
+            <button class="ds-action-item" data-ds-action="stay-reception">
+              <div class="ds-action-icon" style="background: #e9f0ea; color: #2a3a30;">🛎</div>
+              <div class="ds-action-text">
+                <strong>Message Duty Manager on WhatsApp</strong>
+                <small>Request extra towels, water bottles, luggage help, or late check-out</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 2: Dining & Breakfast Schedule -->
+            <button class="ds-action-item" data-ds-action="stay-dining">
+              <div class="ds-action-icon" style="background: #fdf3e7; color: #b4752c;">🍳</div>
+              <div class="ds-action-text">
+                <strong>Courtyard Breakfast &amp; Tea Tasting Hours</strong>
+                <small>Served 7:30 AM – 10:30 AM · Seasonal organic estate teas and warm bakes</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 3: Review / Public Destination -->
+            <button class="ds-action-item" data-ds-action="salon-review">
+              <div class="ds-action-icon" style="background: #f5f8f5; color: #3b5442;">★</div>
+              <div class="ds-action-text">
+                <strong>Share your stay experience on Google</strong>
+                <small>Helps travellers find our quiet heritage retreat · Takes 30 seconds</small>
+              </div>
+              <div class="ds-action-chevron">↗</div>
+            </button>
+
+            <!-- Action 4: Private Note to GM Jump -->
+            <a class="ds-action-item" href="#private-feedback">
+              <div class="ds-action-icon" style="background: #f0efe8; color: #20221e;">✉</div>
+              <div class="ds-action-text">
+                <strong>Leave a private note for the General Manager</strong>
+                <small>Let us fix anything during your stay before departure</small>
+              </div>
+              <div class="ds-action-chevron">↓</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- House Rules & Timing Grid -->
+        <div style="margin-bottom: 36px; padding-top: 24px; border-top: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">ESSENTIAL STAY DETAILS</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            House guidelines &amp; <span class="serif">quiet hours.</span>
+          </h2>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px;">
+            <div style="background: var(--ds-surface-subtle); padding: 18px; border-radius: var(--ds-radius-md); border: 1px solid var(--ds-line);">
+              <div style="font-size: 11px; font-weight: 700; color: var(--ds-ink-tertiary); margin-bottom: 4px;">CHECK-OUT TIME</div>
+              <div style="font-size: 16px; font-weight: 700; color: var(--ds-ink);">11:00 AM</div>
+              <div style="font-size: 11px; color: var(--ds-ink-secondary); margin-top: 4px;">Complimentary luggage storage available at front desk.</div>
+            </div>
+
+            <div style="background: var(--ds-surface-subtle); padding: 18px; border-radius: var(--ds-radius-md); border: 1px solid var(--ds-line);">
+              <div style="font-size: 11px; font-weight: 700; color: var(--ds-ink-tertiary); margin-bottom: 4px;">QUIET HOURS</div>
+              <div style="font-size: 16px; font-weight: 700; color: var(--ds-ink);">10:00 PM – 7:00 AM</div>
+              <div style="font-size: 11px; color: var(--ds-ink-secondary); margin-top: 4px;">Preserving restful calm across courtyard bedrooms.</div>
+            </div>
+
+            <div style="background: var(--ds-surface-subtle); padding: 18px; border-radius: var(--ds-radius-md); border: 1px solid var(--ds-line);">
+              <div style="font-size: 11px; font-weight: 700; color: var(--ds-ink-tertiary); margin-bottom: 4px;">ECO-LINEN POLICY</div>
+              <div style="font-size: 16px; font-weight: 700; color: var(--ds-ink);">Wash on Request</div>
+              <div style="font-size: 11px; color: var(--ds-ink-secondary); margin-top: 4px;">Leave the bamboo card on your bed for linen change.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curated Neighborhood Guide (Local Recommendations) -->
+        <div style="margin-bottom: 36px; padding-top: 24px; border-top: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">CURATED NEIGHBORHOOD SPOTS</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            Staff recommendations <span class="serif">in Sagar.</span>
+          </h2>
+          <p style="font-size: 12px; color: var(--ds-ink-tertiary); margin-bottom: 16px;">
+            Fictional neighborhood highlights to demonstrate how hotels share local itineraries.
+          </p>
+
+          <div class="guide-grid">
+            <div class="guide-card">
+              <span class="guide-tag">WALKING DISTANCE · 350M</span>
+              <h3 class="guide-title">Old Town Heritage Walk</h3>
+              <p class="guide-desc">
+                Quiet sandstone arches and century-old banyan trees. Best visited in the early morning before 8:30 AM.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <span class="guide-tag">SUNSET SPOT · 1.2 KM</span>
+              <h3 class="guide-title">Lakheempur Lakeside Promenade</h3>
+              <p class="guide-desc">
+                Stone steps overlooking the calm evening waters. Ideal for a tea stroll or watching migratory birds.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <span class="guide-tag">ARTISAN CRAFT · 800M</span>
+              <h3 class="guide-title">Clay &amp; Kiln Pottery Studio</h3>
+              <p class="guide-desc">
+                Traditional terracotta potters crafting water vessels. Watch artisans work and pick up handmade pieces.
+              </p>
+            </div>
+
+            <div class="guide-card">
+              <span class="guide-tag">HISTORIC BAZAAR · 600M</span>
+              <h3 class="guide-title">The Old Spice Quarter</h3>
+              <p class="guide-desc">
+                Fragrant lanes with green cardamom pods, crushed cloves, and freshly ground garam masala mixtures.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Private Guest Note Form -->
+        <div id="private-feedback" style="margin-bottom: 36px; padding: 28px; background: var(--ds-surface-subtle); border-radius: var(--ds-radius-lg); border: 1px solid var(--ds-line);">
+          <div class="ds-eyebrow">DIRECT GM NOTE</div>
+          <h2 class="ds-heading-section" style="font-size: 22px;">
+            Private feedback <span class="serif">to management.</span>
+          </h2>
+          <p style="font-size: 13px; color: var(--ds-ink-secondary); margin-bottom: 20px;">
+            Tap stands give guests a discreet private channel to report room temperature, missing amenities, or compliments.
+          </p>
+
+          <form id="stay-feedback-form" style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div>
+                <label for="guest-room" style="display: block; font-size: 11px; font-weight: 700; color: var(--ds-ink-secondary); margin-bottom: 6px;">
+                  ROOM NUMBER
+                </label>
+                <input type="text" id="guest-room" value="Room 204" readonly style="width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-sm); font-family: inherit; font-size: 13px; background: #eeede5; color: var(--ds-ink);">
+              </div>
+              <div>
+                <label for="feedback-topic" style="display: block; font-size: 11px; font-weight: 700; color: var(--ds-ink-secondary); margin-bottom: 6px;">
+                  TOPIC
+                </label>
+                <select id="feedback-topic" style="width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-sm); font-family: inherit; font-size: 13px; background: #ffffff;">
+                  <option value="Amenity Request">Amenity Request</option>
+                  <option value="Room Temperature">Room Temperature / AC</option>
+                  <option value="Compliment for Staff" selected>Compliment for Staff</option>
+                  <option value="Quietness / Rest">Quietness / Rest</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="guest-message" style="display: block; font-size: 11px; font-weight: 700; color: var(--ds-ink-secondary); margin-bottom: 6px;">
+                MESSAGE FOR DUTY MANAGER
+              </label>
+              <textarea id="guest-message" rows="3" placeholder="Tell us how we can make your stay more comfortable..." style="width: 100%; padding: 12px; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-sm); font-family: inherit; font-size: 13px; background: #ffffff;"></textarea>
+            </div>
+
+            <button type="submit" class="ds-btn ds-btn-moss" style="align-self: flex-start;">
+              Send Note to Duty Manager Demo
+            </button>
+          </form>
+        </div>
+
+        <!-- Disclosure Disclaimer Banner -->
+        <div class="ds-disclosure-box" style="margin-bottom: 0;">
+          <div class="ds-disclosure-icon" aria-hidden="true">i</div>
+          <div class="ds-disclosure-copy">
+            <h3>Demonstration Experience Notice</h3>
+            <p>
+              The Koya House and Room 204 are fictional hospitality concepts created for the TAP TRUST Demo Studio. Wi-Fi credentials are demonstrative test samples. Interactive actions simulate in-room guest services without submitting real requests.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Universal Demo Footer -->
+  <footer class="ds-footer">
+    <div class="ds-footer-inner">
+      <div class="ds-footer-brand-col">
+        <a class="ds-brand" href="../index.html">
+          <span class="ds-brand-mark" aria-hidden="true"><span></span><span></span></span>
+          <span>TAP<span style="font-weight: 500; color: #77796f; margin-left: 3px;">TRUST</span></span>
+        </a>
+        <p>
+          Hotel &amp; Guest Stay demo powered by TAP TRUST. Putting guest Wi-Fi, dining hours, and concierge messaging onto bedside NFC stands.
+        </p>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Demo Studio</h4>
+        <ul>
+          <li><a href="../index.html">All 4 Industry Demos</a></li>
+          <li><a href="salon.html">Barber &amp; Salon Demo</a></li>
+          <li><a href="cafe.html">Café &amp; Restaurant Demo</a></li>
+          <li><a href="property.html">Real Estate Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Hotel Hardware</h4>
+        <ul>
+          <li><a href="../../index.html#solutions">Bedside Wooden Stands</a></li>
+          <li><a href="../../index.html#pricing">Keycard Pocket Tags</a></li>
+          <li><a href="../../index.html#how">Instant In-Room Wi-Fi</a></li>
+        </ul>
+      </div>
+
+      <div class="ds-footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html">← Back to Demo Studio</a></li>
+          <li><a href="../../index.html">← TAP TRUST Main Site</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ds-footer-bottom">
+      <span>© 2026 TAP TRUST · Fictional Hotel &amp; Guest Stay Demo</span>
+      <span>No real hotel booking or room request was sent.</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/demo-studio.js"></script>
+</body>
+</html>
